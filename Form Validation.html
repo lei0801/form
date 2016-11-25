@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/css/bootstrap.css" />
+		<style type="text/css">
+			.container{
+				margin-top: 80px;
+			}
+			h2{
+				margin-bottom: 40px;
+			}
+		</style>
+	</head>
+		
+	<body>
+		<div class="container">
+			<h2 class="text-center">表单注册登陆</h2>
+			<form class="form-horizontal" role="form" id="formtest" onsubmit="" action="http://www.baidu.com" method="post">
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 col-sm-offset-3 control-label">Email</label>
+					<div class="col-sm-3">
+						<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputymname3" class="col-sm-2 col-sm-offset-3 control-label">昵称</label>
+					<div class="col-sm-3">
+						<input type="text" name="myname" class="form-control" id="inputmyname" maxlength="20"  placeholder="myname">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 col-sm-offset-3 control-label">密码</label>
+					<div class="col-sm-3">
+						<input type="password" name="pswd" class="form-control" id="inputPassword" maxlength="30"  placeholder="Password">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 col-sm-offset-3 control-label">确认密码</label>
+					<div class="col-sm-3">
+						<input type="password" class="form-control" id="inputPassword2" maxlength="30" placeholder="password2">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3 col-sm-offset-5">
+						<div class="checkbox">
+							<label>
+		          <input type="checkbox"> Remember me
+		        </label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2 col-sm-offset-5">
+						<button type="button" class="btn btn-primary" onclick="btn()">提交</button>
+						<button type="reset" class="btn btn-danger col-sm-offset-1">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				function btn(){
+					
+					var email =	document.getElementById("inputEmail");
+					var myname = document.getElementById("inputmyname");
+					var pswd = document .getElementById("inputPassword");
+					var pswd2 = document.getElementById("inputPassword2");
+					var get = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+					var get2 = /^[a-zA-Z]\w{5,15}$/;
+					var get3 =  /^(\w){6,20}$/;
+					if (!get.test(email.value)) {
+						 alert("邮箱格式不对");
+						 email.focus();
+						return false;
+					}
+					if (!get2.exec(myname.value)) {				
+						 alert("名字输入格式不对");
+						 myname.focus();
+						return false;
+					}
+					if (!get3.exec(pswd.value)) {			
+						 alert("密码格式不对");
+						 pswd.focus();
+						return false;
+					}
+					if (pswd.value!==pswd2.value) {
+						 alert("两次密码不相同");
+						 pswd2.focus();
+						return false;
+					}
+					document.getElementById("formtest").submit();
+				}		
+			</script>
+	</body>
+
+</html>
